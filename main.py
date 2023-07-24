@@ -237,7 +237,7 @@ if __name__ == "__main__":
                 agent_details[agent["Certificate No"]] = agent
                 total_agents_fetched = len(agent_details.values())
                 percentage = (total_agents_fetched / total_agents_expected) * 100
-                show_progress(percentage)
+                if onLocal: show_progress(percentage)
         
         total_agents_fetched = len(agent_details.values())
         save_data_to_file(page_no + 1, current_page_file)
