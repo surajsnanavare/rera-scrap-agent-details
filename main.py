@@ -12,6 +12,9 @@ current_directory = os.path.dirname(current_file_path)
 sleep_time_seconds = 5
 onLocal = False
 
+subprocess.run(["git", "config", "--global", "user.email", "github-action@example.com"])
+subprocess.run(["git", "config", "--global", "user.name", "GitHub Action"])
+
 def commit_and_push(count):
     commit_message = f"Added new peroperty agents [Total:{count}]"
     subprocess.run(["git", "add", "."])

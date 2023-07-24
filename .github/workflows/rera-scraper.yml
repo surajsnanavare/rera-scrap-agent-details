@@ -24,8 +24,3 @@ jobs:
       - name: Run main.py and commit changes
         run: |
           python main.py
-          git config --global user.email "github-action@example.com"
-          git config --global user.name "GitHub Action"
-          git add .
-          git commit -m "Auto commit from GitHub Action" || echo "No changes to commit"
-          git push origin main
