@@ -21,7 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt # If you have any requirements, add them to a 'requirements.txt' file
 
-      - name: Run main.py and commit changes
+      - name: Run sample.py and commit changes
         run: |
           python main.py
           git config --global user.email "github-action@example.com"
