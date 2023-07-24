@@ -237,11 +237,11 @@ if __name__ == "__main__":
                 show_progress(percentage)
         
         total_agents_fetched = len(agent_details.values())
-        if not onLocal: commit_and_push(total_agents_fetched)
         save_data_to_file(page_no + 1, current_page_file)
         save_data_to_file(agent_details, pickle_file)
         df = convert_to_dataframe(agent_details)
         save_to_xlsx(df, excel_output_file)
+        if not onLocal: commit_and_push(total_agents_fetched)
 
         print(f"\n Sleeping for {sleep_time_seconds} seconds before next run!")
         time.sleep(sleep_time_seconds)
