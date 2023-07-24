@@ -1,2 +1,0 @@
-Hello, this is some content in the file.
-You can add more lines if you want.

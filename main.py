@@ -5,11 +5,18 @@ import re
 import pandas as pd
 import os
 import time
+import subprocess
 
 current_file_path = os.path.abspath(__file__)
 current_directory = os.path.dirname(current_file_path)
 sleep_time_seconds = 5
+onLocal = False
 
+def commit_and_push(count):
+    commit_message = f"Added new peroperty agents [Total:{count}]"
+    subprocess.run(["git", "add", "."])
+    subprocess.run(["git", "commit", "-m", commit_message])
+    subprocess.run(["git", "push", "origin", "main"])
 
 def show_progress(percentage):
     print(f"\rProgress: {percentage:.2f}%", end="", flush=True)
@@ -228,7 +235,9 @@ if __name__ == "__main__":
                 total_agents_fetched = len(agent_details.values())
                 percentage = (total_agents_fetched / total_agents_expected) * 100
                 show_progress(percentage)
-
+        
+        total_agents_fetched = len(agent_details.values())
+        if not onLocal: commit_and_push(total_agents_fetched)
         save_data_to_file(page_no + 1, current_page_file)
         save_data_to_file(agent_details, pickle_file)
         df = convert_to_dataframe(agent_details)

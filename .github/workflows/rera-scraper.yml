@@ -23,7 +23,7 @@ jobs:
 
       - name: Run main.py and commit changes
         run: |
-          python sample.py
+          python main.py
           git config --global user.email "github-action@example.com"
           git config --global user.name "GitHub Action"
           git add .
